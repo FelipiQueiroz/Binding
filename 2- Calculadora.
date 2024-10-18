@@ -1,0 +1,36 @@
+export class CalculadoraComponent {
+  num1 = 0;
+  num2 = 0;
+  operacao = 'somar';
+  resultado: number | string = '';
+
+  calcular() {
+    switch (this.operacao) {
+      case 'somar':
+        this.resultado = this.num1 + this.num2;
+        break;
+      case 'subtrair':
+        this.resultado = this.num1 - this.num2;
+        break;
+      case 'multiplicar':
+        this.resultado = this.num1 * this.num2;
+        break;
+      case 'dividir':
+        this.resultado = this.num2 !== 0 ? this.num1 / this.num2 : 'Erro: divisão por zero';
+        break;
+    }
+  }
+}
+<div>
+  <label>Número 1: </label><input type="number" [(ngModel)]="num1" /><br />
+  <label>Número 2: </label><input type="number" [(ngModel)]="num2" /><br />
+  <label>Operação: </label>
+  <select [(ngModel)]="operacao">
+    <option value="somar">Somar</option>
+    <option value="subtrair">Subtrair</option>
+    <option value="multiplicar">Multiplicar</option>
+    <option value="dividir">Dividir</option>
+  </select><br />
+  <button (click)="calcular()">Calcular</button><br />
+  <input type="text" [value]="resultado" readonly />
+</div>
