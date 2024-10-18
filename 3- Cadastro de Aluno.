@@ -1,0 +1,24 @@
+export class CadastroAlunoComponent {
+  aluno = {
+    ra: '',
+    nome: '',
+    email: '',
+    celular: ''
+  };
+
+  cadastrar(form: NgForm) {
+    if (form.valid) {
+      console.log(this.aluno);
+      alert('Aluno cadastrado com sucesso!');
+    } else {
+      alert('Preencha todos os campos.');
+    }
+  }
+}
+<form #alunoForm="ngForm" (ngSubmit)="cadastrar(alunoForm)">
+  <label>RA: </label><input type="text" name="ra" [(ngModel)]="aluno.ra" required /><br />
+  <label>Nome: </label><input type="text" name="nome" [(ngModel)]="aluno.nome" required /><br />
+  <label>Email: </label><input type="email" name="email" [(ngModel)]="aluno.email" required /><br />
+  <label>Celular: </label><input type="tel" name="celular" [(ngModel)]="aluno.celular" required /><br />
+  <button type="submit">Cadastrar</button>
+</form>
