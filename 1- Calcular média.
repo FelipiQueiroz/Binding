@@ -1,3 +1,16 @@
+export class MediaComponent {
+  ac1 = 0;
+  ac2 = 0;
+  ag = 0;
+  af = 0;
+  resultado: string = '';
+
+  calcularMedia() {
+    const media = (this.ac1 * 0.15) + (this.ac2 * 0.30) + (this.ag * 0.10) + (this.af * 0.45);
+    this.resultado = media >= 5 ? 'Aprovado' : 'Reprovado';
+  }
+}
+
 <div>
   <label>AC1: </label><input type="number" [(ngModel)]="ac1" /><br />
   <label>AC2: </label><input type="number" [(ngModel)]="ac2" /><br />
